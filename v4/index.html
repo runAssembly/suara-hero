@@ -1,0 +1,623 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Suara — the social media your restaurant already sounds like</title>
+<meta name="description" content="Suara writes, designs and posts your restaurant's social media from
+ what your business already is — and refuses to claim anything it cannot verify.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#FFFFFF;color:#1A1520;
+  font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
+  font-size:16px;line-height:1.32;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+
+/* owner.com's measured type ramp: tight tracking, sub-1 leading on display sizes */
+.h-xl,.h-lg,.h-md,h1,h2{font-weight:800;letter-spacing:-.04em;line-height:.95;margin:0}
+h1,.h-xl{font-size:clamp(44px,6.2vw,80px)}
+.h-lg{font-size:clamp(36px,5vw,64px)}
+.h-md{font-size:clamp(30px,3.6vw,48px);letter-spacing:-.03em}
+h3{font-size:clamp(20px,1.7vw,26px);font-weight:700;letter-spacing:-.02em;line-height:1.12;margin:0}
+p{margin:0;color:rgba(26,21,32,.85)}
+/* optical kern for punctuation at display size — see dt() in the builder */
+.pn{margin-left:-.09em}
+.lede{font-size:clamp(17px,1.35vw,20px);line-height:1.45;max-width:624px}
+
+.wrap{max-width:1440px;margin:0 auto;padding:0 clamp(20px,4vw,64px)}
+section{padding:clamp(72px,9vw,128px) 0 clamp(84px,11vw,164px)}
+.bg-cream{background:#FDF7EF}
+
+/* ── nav ── */
+.nav{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.82);
+  backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid rgba(26,21,32,.06)}
+.nav-in{display:flex;align-items:center;gap:28px;height:76px}
+.brand{font-weight:800;font-size:23px;letter-spacing:-.03em;display:flex;align-items:center;gap:9px}
+.brand i{width:19px;height:19px;border-radius:50%;background:#FF6A45;display:block;
+  box-shadow:inset 0 0 0 4px #FFFFFF,0 0 0 2px #FF6A45}
+.nav-links{display:flex;gap:30px;margin:0 auto;font-size:15px;font-weight:600}
+.nav-links span{opacity:.55;font-size:11px}
+.nav-cta{display:flex;align-items:center;gap:20px;font-size:15px;font-weight:600}
+.pill{display:inline-flex;align-items:center;gap:9px;border-radius:999px;padding:14px 26px;
+  font-weight:700;font-size:15px;transition:transform .25s cubic-bezier(.2,.7,.3,1),
+  box-shadow .25s,background .2s}
+.pill:hover{transform:translateY(-2px)}
+.pill--ink{background:#1A1520;color:#fff}
+.pill--ink:hover{box-shadow:0 10px 26px rgba(26,21,32,.26)}
+.pill--coral{background:#E24A28;color:#fff}
+.pill--coral:hover{box-shadow:0 12px 30px rgba(226,74,40,.36)}
+.pill--ghost{background:rgba(255,255,255,.9);color:#1A1520}
+@media(max-width:900px){.nav-links{display:none}}
+
+/* ── hero ── */
+.hero{text-align:center;padding-top:clamp(48px,6vw,80px);padding-bottom:0;position:relative}
+.rating{display:inline-flex;align-items:center;gap:11px;font-size:16px;font-weight:600;
+  color:rgba(26,21,32,.7);margin-bottom:clamp(22px,3vw,34px)}
+.rating b{color:#1A1520}
+.rating .st{color:#FFC24B;letter-spacing:2px;font-size:17px}
+.hero h1{max-width:1180px;margin:0 auto}
+/* the rotating clause is the signature owner.com move (GSAP SplitText); done here per-character
+   so it reads as typeset text, not a fade */
+.rot{display:inline-block;position:relative;color:#E24A28;white-space:nowrap}
+.rot .ch{display:inline-block;transform:translateY(1.05em);opacity:0}
+.rot.in .ch{animation:chIn .5s cubic-bezier(.2,.8,.25,1) forwards}
+.rot.out .ch{animation:chOut .34s cubic-bezier(.5,0,.75,0) forwards}
+@keyframes chIn{to{transform:translateY(0);opacity:1}}
+@keyframes chOut{to{transform:translateY(-1.05em);opacity:0}}
+
+.hero-cta{margin:clamp(30px,4vw,44px) auto 0;max-width:640px;position:relative}
+.hero-cta form{display:flex;align-items:center;gap:8px;background:#FFFFFF;
+  border-radius:999px;padding:9px 9px 9px 12px;
+  box-shadow:0 0 0 1px rgba(26,21,32,.07),0 18px 44px rgba(226,74,40,.15)}
+.hero-cta input{flex:1;border:0;outline:0;font:inherit;font-size:17px;padding:14px 14px;
+  background:transparent;color:#1A1520}
+.hero-cta input::placeholder{color:rgba(26,21,32,.42)}
+.hero-note{margin-top:14px;font-size:14px;color:rgba(26,21,32,.55)}
+
+.hero-stage{position:relative;margin-top:clamp(40px,5vw,64px);height:clamp(300px,34vw,470px)}
+.slab{position:absolute;top:0;bottom:0;width:38%;border-radius:112px}
+.slab--l{left:0;background:linear-gradient(135deg,#E24A28,#FF6A45)}
+.slab--r{right:0;background:linear-gradient(220deg,#FFE2D6,#FDF7EF)}
+.phone{position:absolute;left:50%;top:6%;transform:translateX(-50%);width:clamp(220px,20vw,286px);
+  border-radius:44px;background:#1A1520;padding:11px;
+  box-shadow:0 34px 80px rgba(26,21,32,.34);overflow:hidden;z-index:2}
+.phone-grid{border-radius:34px;overflow:hidden;display:grid;grid-template-columns:repeat(3,1fr);
+  gap:3px;background:#1A1520}
+.phone-grid img{aspect-ratio:1;object-fit:cover;width:100%}
+/* a photo cropped to 9:17 shows mostly empty table; and a mocked-up product UI would be an
+   invented screen. A grid of real output is neither. */
+@media(max-width:760px){.slab{width:30%;border-radius:64px}}
+
+/* ── owner marquee (dark photo cards, drag to scroll) ── */
+.orow{display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;
+  padding:6px clamp(20px,4vw,64px) 22px;cursor:grab;
+  scrollbar-width:none;-ms-overflow-style:none}
+.orow::-webkit-scrollbar{display:none}
+.orow.drag{cursor:grabbing;scroll-snap-type:none}
+.ocard{position:relative;flex:0 0 clamp(280px,26vw,376px);height:clamp(300px,27vw,392px);
+  border-radius:32px;overflow:hidden;scroll-snap-align:start;background:#1A1520}
+.ocard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.62;
+  transition:transform .7s cubic-bezier(.2,.7,.3,1)}
+.ocard:hover img{transform:scale(1.05)}
+.ocard-in{position:absolute;inset:auto 0 0 0;padding:28px;color:#fff;
+  background:linear-gradient(transparent,rgba(0,0,0,.72) 42%)}
+.ocard-stat{font-size:clamp(34px,3.4vw,48px);font-weight:800;letter-spacing:-.035em;line-height:1}
+.ocard-label{font-size:16px;font-weight:600;opacity:.9;margin-top:4px}
+.ocard-who{margin-top:18px;font-size:15px;display:flex;flex-direction:column;gap:2px}
+.ocard-role{opacity:.72;font-weight:500}
+
+/* ── tabs ── */
+.tabs{display:flex;gap:0;margin-top:clamp(38px,5vw,58px);flex-wrap:wrap}
+.tab{flex:1 1 200px;text-align:left;padding:0 0 18px;font-size:clamp(17px,1.5vw,22px);
+  font-weight:700;letter-spacing:-.02em;color:rgba(26,21,32,.42);
+  border-bottom:2px solid rgba(26,21,32,.1);transition:color .3s}
+.tab.is-on{color:#1A1520;border-bottom-color:#E24A28}
+/* no min-height: the panes were 520px tall for ~300px of content, which printed a dead band
+   of cream under every tab */
+.panes{margin-top:clamp(28px,4vw,44px);background:#FDF7EF;border-radius:clamp(28px,4vw,64px);
+  padding:clamp(26px,4vw,58px);position:relative}
+.pane{display:none;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px);align-items:center}
+.pane.is-on{display:grid;animation:paneIn .5s cubic-bezier(.2,.8,.25,1)}
+@keyframes paneIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.pane-copy h3{font-size:clamp(24px,2.6vw,36px);letter-spacing:-.03em}
+.pane-copy p{margin-top:16px;font-size:clamp(16px,1.3vw,19px);line-height:1.45}
+.pane-art img{border-radius:32px;aspect-ratio:4/3;object-fit:cover;width:100%;
+  box-shadow:0 26px 60px rgba(26,21,32,.14)}
+@media(max-width:820px){.pane.is-on{grid-template-columns:1fr}}
+
+/* ── coral social-proof wall, two marquees running opposite ── */
+/* the marquees are the bottom of this section — the standard 164px section pad left a band of
+   empty coral under the second row */
+.wall{background:
+   radial-gradient(120% 90% at 50% 0%,#FF6A45 0%,#E24A28 55%,#B8341A 100%);
+  color:#fff;overflow:hidden;position:relative;padding-bottom:clamp(56px,7vw,96px)}
+.wall::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.16;
+  background:repeating-radial-gradient(circle at 50% -10%,transparent 0 58px,#fff 58px 59px)}
+.wall .h-xl{text-align:center;max-width:900px;margin:0 auto}
+.wall-sub{text-align:center;color:rgba(255,255,255,.86);margin-top:18px}
+.marq{display:flex;overflow:hidden;margin-top:34px;-webkit-mask-image:
+  linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+.marq-in{display:flex;gap:20px;flex:0 0 auto;will-change:transform}
+.marq--l .marq-in{animation:mLeft 46s linear infinite}
+.marq--r .marq-in{animation:mRight 52s linear infinite}
+@keyframes mLeft{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes mRight{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.marq:hover .marq-in{animation-play-state:paused}
+.rcard{flex:0 0 clamp(250px,22vw,320px);background:#FFE2D6;color:#1A1520;
+  border-radius:24px;padding:24px;margin:0;display:flex;flex-direction:column;gap:12px;
+  min-height:190px}
+.rcard .stars{color:#E24A28;letter-spacing:2px;font-size:15px}
+.rcard blockquote{margin:0;font-size:17px;font-weight:600;letter-spacing:-.015em;line-height:1.28}
+.rcard figcaption{margin-top:auto;font-size:14px;color:rgba(26,21,32,.6);font-weight:600}
+
+/* ── feature cards ── */
+.fgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(16px,2vw,26px);
+  margin-top:clamp(38px,5vw,60px)}
+.fcard{border-radius:clamp(26px,3vw,40px);padding:clamp(24px,3vw,40px);min-height:clamp(340px,34vw,480px);
+  display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}
+.fcard--coral{background:linear-gradient(150deg,#FF6A45,#E24A28);color:#fff}
+.fcard--cream{background:#F7EADF}  /* deeper than the section's cream — on #FDF7EF a
+   cream card is invisible, which is how two of the four read as floating captions */
+.fcard-art img{border-radius:22px;aspect-ratio:16/10;object-fit:cover;width:100%;
+  box-shadow:0 22px 50px rgba(26,21,32,.16)}
+.fcard-cap{font-size:clamp(19px,1.7vw,26px);font-weight:700;letter-spacing:-.025em;
+  line-height:1.16;margin-top:30px;color:inherit}
+.fcard--coral .fcard-cap{color:#fff}
+@media(max-width:820px){.fgrid{grid-template-columns:1fr}}
+
+/* ── case studies ── */
+.cgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,26px);
+  margin-top:clamp(38px,5vw,58px)}
+.ccard{background:#FDF7EF;border-radius:32px;padding:clamp(20px,2.2vw,28px);
+  display:flex;flex-direction:column;transition:transform .3s cubic-bezier(.2,.7,.3,1)}
+.ccard:hover{transform:translateY(-6px)}
+.ccard-art img{border-radius:20px;aspect-ratio:4/3;object-fit:cover;width:100%}
+.ccard-stat{font-size:clamp(32px,3vw,44px);font-weight:800;letter-spacing:-.035em;
+  color:#E24A28;margin-top:24px;line-height:1}
+.ccard-label{font-size:15px;font-weight:600;color:rgba(26,21,32,.6);margin-top:4px}
+.ccard h3{margin-top:16px}
+.ccard-more{margin-top:20px;font-weight:700;font-size:15px;color:#E24A28}
+.ccard-more i{font-style:normal;transition:transform .3s;display:inline-block}
+.ccard:hover .ccard-more i{transform:translateX(5px)}
+@media(max-width:900px){.cgrid{grid-template-columns:1fr}}
+
+/* ── beliefs ── */
+.bgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,3vw,44px);
+  margin-top:clamp(38px,5vw,58px)}
+.belief h3{padding-top:22px;border-top:2px solid #E24A28}
+.belief p{margin-top:14px;font-size:16px;line-height:1.5}
+@media(max-width:900px){.bgrid{grid-template-columns:1fr}}
+
+/* ── guides bento ── */
+.ggrid{display:grid;grid-template-columns:1.35fr 1fr 1fr;gap:clamp(14px,1.6vw,22px);
+  margin-top:clamp(38px,5vw,58px)}
+.gcard{position:relative;border-radius:28px;overflow:hidden;min-height:clamp(280px,30vw,430px)}
+.gcard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  transition:transform .8s cubic-bezier(.2,.7,.3,1)}
+.gcard:hover img{transform:scale(1.06)}
+.gcard h3{position:absolute;inset:auto 0 0 0;padding:26px;color:#fff;z-index:2;
+  background:linear-gradient(transparent,rgba(0,0,0,.74) 58%)}
+@media(max-width:900px){.ggrid{grid-template-columns:1fr}}
+
+/* ── final cta ── */
+.final{background:#1A1520;color:#fff;border-radius:clamp(30px,4vw,64px);
+  padding:clamp(46px,7vw,104px) clamp(26px,4vw,64px);text-align:center;position:relative;
+  overflow:hidden}
+.final::before{content:"";position:absolute;width:70%;height:190%;left:-14%;top:-46%;
+  background:radial-gradient(closest-side,rgba(255,106,69,.5),transparent);pointer-events:none}
+.final .h-md{position:relative;max-width:760px;margin:0 auto}
+.final-btns{position:relative;margin-top:clamp(26px,3.4vw,40px);display:flex;gap:13px;
+  justify-content:center;flex-wrap:wrap}
+
+/* ── footer ── */
+.foot{padding:clamp(56px,7vw,96px) 0 34px}
+.fgrid2{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(22px,3vw,40px);
+  margin-top:44px}
+.fcol h4{font-size:15px;font-weight:600;color:rgba(26,21,32,.45);margin:0 0 18px}
+.fcol a{display:block;font-size:17px;font-weight:600;letter-spacing:-.02em;margin-bottom:14px;
+  transition:color .2s}
+.fcol a:hover{color:#E24A28}
+.foot-end{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  margin-top:52px;padding-top:26px;border-top:1px solid rgba(26,21,32,.1);
+  font-size:14px;color:rgba(26,21,32,.55)}
+@media(max-width:900px){.fgrid2{grid-template-columns:repeat(2,1fr)}}
+
+/* ── scroll reveal (owner runs ScrollTrigger; same effect, no dependency) ── */
+.rev{opacity:0;transform:translateY(26px)}
+.rev.on{opacity:1;transform:none;transition:opacity .72s cubic-bezier(.2,.8,.25,1),
+  transform .72s cubic-bezier(.2,.8,.25,1)}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .rev{opacity:1;transform:none} .rot .ch{opacity:1;transform:none}
+}
+</style>
+
+<header class="nav"><div class="wrap nav-in">
+  <a class="brand" href="#"><i></i>Suara</a>
+  <nav class="nav-links">
+    <a href="#how">Product <span>▾</span></a><a href="#pricing">Pricing</a>
+    <a href="#how">How it works</a><a href="#beliefs">Company <span>▾</span></a>
+    <a href="#guides">Resources <span>▾</span></a>
+  </nav>
+  <div class="nav-cta"><a href="#">Login</a>
+    <a class="pill pill--ink" href="#cta">Start free</a></div>
+</div></header>
+
+<main>
+<section class="hero"><div class="wrap">
+  <div class="rating rev"><b>4.8</b><span class="st">★★★★★</span>
+    <span data-placeholder="1">across 1,000+ reviews</span></div>
+  <h1 class="rev">The social media platform restaurants use to
+    <span class="rot" id="rot"></span></h1>
+  <div class="hero-cta rev">
+    <form onsubmit="return false">
+      <input type="text" placeholder="Paste your Instagram or menu link" aria-label="Your link">
+      <button class="pill pill--coral" type="submit">See a week free <span>↑</span></button>
+    </form>
+    <p class="hero-note">14-day free trial · no card · cancel any time</p>
+  </div>
+  <div class="hero-stage rev">
+    <div class="slab slab--l"></div><div class="slab slab--r"></div>
+    <div class="phone"><div class="phone-grid"><img src="img/cafe-1775037.jpg" alt="" loading="lazy"><img src="img/cafe-31139336.jpg" alt="" loading="lazy"><img src="img/cafe-4828310.jpg" alt="" loading="lazy"><img src="img/cafe-35795108.jpg" alt="" loading="lazy"><img src="img/cafe-12048451.jpg" alt="" loading="lazy"><img src="img/cafe-15738014.jpg" alt="" loading="lazy"><img src="img/cafe-32691609.jpg" alt="" loading="lazy"><img src="img/cafe-13735958.jpg" alt="" loading="lazy"><img src="img/cafe-7717601.jpg" alt="" loading="lazy"></div></div>
+  </div>
+</div></section>
+
+<section><div class="wrap"><h2 class="h-lg rev">Grow like these owners</h2></div>
+  <div class="orow rev"><article class="ocard">
+        <img src="img/cafe-6223009.jpg" alt="" loading="lazy">
+        <div class="ocard-in">
+          <div class="ocard-stat" data-placeholder="1">RM8<span class="pn">,</span>400</div>
+          <div class="ocard-label" data-placeholder="1">Extra covers in 30 days</div>
+          <div class="ocard-who"><span data-placeholder="1">Aisha R.</span><span
+             class="ocard-role" data-placeholder="1">Owner, Kedai Kopi Lima</span></div>
+        </div></article>
+<article class="ocard">
+        <img src="img/cafe-4353582.jpg" alt="" loading="lazy">
+        <div class="ocard-in">
+          <div class="ocard-stat" data-placeholder="1">3 hrs</div>
+          <div class="ocard-label" data-placeholder="1">Saved every week</div>
+          <div class="ocard-who"><span data-placeholder="1">Marcus T.</span><span
+             class="ocard-role" data-placeholder="1">Owner, Second Wind Coffee</span></div>
+        </div></article>
+<article class="ocard">
+        <img src="img/cafe-33934661.jpg" alt="" loading="lazy">
+        <div class="ocard-in">
+          <div class="ocard-stat" data-placeholder="1">+41%</div>
+          <div class="ocard-label" data-placeholder="1">Saves per post</div>
+          <div class="ocard-who"><span data-placeholder="1">Priya N.</span><span
+             class="ocard-role" data-placeholder="1">Owner, Ruma Bakes</span></div>
+        </div></article>
+<article class="ocard">
+        <img src="img/cafe-6205637.jpg" alt="" loading="lazy">
+        <div class="ocard-in">
+          <div class="ocard-stat" data-placeholder="1">128</div>
+          <div class="ocard-label" data-placeholder="1">Posts, zero rewrites</div>
+          <div class="ocard-who"><span data-placeholder="1">Dan K.</span><span
+             class="ocard-role" data-placeholder="1">Owner, Northside Espresso</span></div>
+        </div></article>
+<article class="ocard">
+        <img src="img/cafe-30427448.jpg" alt="" loading="lazy">
+        <div class="ocard-in">
+          <div class="ocard-stat" data-placeholder="1">4 mins</div>
+          <div class="ocard-label" data-placeholder="1">To approve a week</div>
+          <div class="ocard-who"><span data-placeholder="1">Lena H.</span><span
+             class="ocard-role" data-placeholder="1">Owner, Bakes on Ninth</span></div>
+        </div></article></div>
+</section>
+
+<section id="how"><div class="wrap">
+  <h2 class="h-xl rev">With Suara you get more posts<span class="pn">,</span> more consistency<span class="pn">,</span><br>more customers who remember you</h2>
+  <div class="tabs rev"><button class="tab is-on" data-tab="0" data-placeholder="1">More posts<span class="pn">,</span> less asking</button>
+<button class="tab" data-tab="1" data-placeholder="1">Your voice<span class="pn">,</span> kept</button>
+<button class="tab" data-tab="2" data-placeholder="1">It refuses to guess</button>
+<button class="tab" data-tab="3" data-placeholder="1">Approve in minutes</button></div>
+  <div class="panes rev"><div class="pane is-on" data-pane="0">
+          <div class="pane-copy">
+            <h3 data-placeholder="1">More posts<span class="pn">,</span> less asking</h3>
+            <p data-placeholder="1">It writes the week from what your restaurant already is — the menu, the hours, the room.</p>
+          </div>
+          <div class="pane-art"><img src="img/cafe-13735958.jpg" alt="" loading="lazy"></div>
+        </div>
+<div class="pane" data-pane="1">
+          <div class="pane-copy">
+            <h3 data-placeholder="1">Your voice<span class="pn">,</span> kept</h3>
+            <p data-placeholder="1">Correct it once and the correction sticks. It does not drift back next month.</p>
+          </div>
+          <div class="pane-art"><img src="img/cafe-7717601.jpg" alt="" loading="lazy"></div>
+        </div>
+<div class="pane" data-pane="2">
+          <div class="pane-copy">
+            <h3 data-placeholder="1">It refuses to guess</h3>
+            <p data-placeholder="1">No claim about your restaurant goes out unless you have given it something to stand on.</p>
+          </div>
+          <div class="pane-art"><img src="img/cafe-5764067.jpg" alt="" loading="lazy"></div>
+        </div>
+<div class="pane" data-pane="3">
+          <div class="pane-copy">
+            <h3 data-placeholder="1">Approve in minutes</h3>
+            <p data-placeholder="1">A week arrives ready. You read it on your phone, tap once, and it goes.</p>
+          </div>
+          <div class="pane-art"><img src="img/cafe-11723979.jpg" alt="" loading="lazy"></div>
+        </div></div>
+</div></section>
+
+<section class="wall"><div class="wrap">
+  <h2 class="h-xl rev">See why owners keep it</h2>
+  <p class="wall-sub lede rev" style="margin-left:auto;margin-right:auto"
+     data-placeholder="1">Rated 4.8 across 1,000+ reviews</p>
+</div>
+<div class="marq marq--l"><div class="marq-in"><figure class="rcard">
+          <div class="stars">★★★★★</div>
+          <blockquote data-placeholder="1">It stopped writing things we never said<span class="pn">.</span></blockquote>
+          <figcaption data-placeholder="1">Aisha R.</figcaption>
+        </figure>
+<figure class="rcard">
+          <div class="stars">★★★★★</div>
+          <blockquote data-placeholder="1">The first tool that took a correction and kept it<span class="pn">.</span></blockquote>
+          <figcaption data-placeholder="1">Marcus T.</figcaption>
+        </figure>
+<figure class="rcard">
+          <div class="stars">★★★★★</div>
+          <blockquote data-placeholder="1">I approve the week on the way to work<span class="pn">.</span></blockquote>
+          <figcaption data-placeholder="1">Priya N.</figcaption>
+        </figure>
+<figure class="rcard">
+          <div class="stars">★★★★★</div>
+          <blockquote data-placeholder="1">It knew we close Mondays<span class="pn">.</span> That is the whole thing<span class="pn">.</span></blockquote>
+          <figcaption data-placeholder="1">Dan K.</figcaption>
+        </figure>
+<figure class="rcard">
+          <div class="stars">★★★★★</div>
+          <blockquote data-placeholder="1">Sounds like our shop<span class="pn">,</span> not like a robot<span class="pn">.</span></blockquote>
+          <figcaption data-placeholder="1">Lena H.</figcaption>
+        </figure>
+<figure class="rcard">
+          <div class="stars">★★★★★</div>
+          <blockquote data-placeholder="1">I stopped dreading the content part<span class="pn">.</span></blockquote>
+          <figcaption data-placeholder="1">Sam O.</figcaption>
+        </figure><figure class="rcard">
+          <div class="stars">★★★★★</div>
+          <blockquote data-placeholder="1">It stopped writing things we never said<span class="pn">.</span></blockquote>
+          <figcaption data-placeholder="1">Aisha R.</figcaption>
+        </figure>
+<figure class="rcard">
+          <div class="stars">★★★★★</div>
+          <blockquote data-placeholder="1">The first tool that took a correction and kept it<span class="pn">.</span></blockquote>
+          <figcaption data-placeholder="1">Marcus T.</figcaption>
+        </figure>
+<figure class="rcard">
+          <div class="stars">★★★★★</div>
+          <blockquote data-placeholder="1">I approve the week on the way to work<span class="pn">.</span></blockquote>
+          <figcaption data-placeholder="1">Priya N.</figcaption>
+        </figure>
+<figure class="rcard">
+          <div class="stars">★★★★★</div>
+          <blockquote data-placeholder="1">It knew we close Mondays<span class="pn">.</span> That is the whole thing<span class="pn">.</span></blockquote>
+          <figcaption data-placeholder="1">Dan K.</figcaption>
+        </figure>
+<figure class="rcard">
+          <div class="stars">★★★★★</div>
+          <blockquote data-placeholder="1">Sounds like our shop<span class="pn">,</span> not like a robot<span class="pn">.</span></blockquote>
+          <figcaption data-placeholder="1">Lena H.</figcaption>
+        </figure>
+<figure class="rcard">
+          <div class="stars">★★★★★</div>
+          <blockquote data-placeholder="1">I stopped dreading the content part<span class="pn">.</span></blockquote>
+          <figcaption data-placeholder="1">Sam O.</figcaption>
+        </figure></div></div>
+<div class="marq marq--r"><div class="marq-in"><figure class="rcard">
+          <div class="stars">★★★★★</div>
+          <blockquote data-placeholder="1">Cheaper than the agency and it actually asks me things<span class="pn">.</span></blockquote>
+          <figcaption data-placeholder="1">Nadia F.</figcaption>
+        </figure>
+<figure class="rcard">
+          <div class="stars">★★★★★</div>
+          <blockquote data-placeholder="1">It said it did not know and waited<span class="pn">.</span> I trust it more for that<span class="pn">.</span></blockquote>
+          <figcaption data-placeholder="1">Tom B.</figcaption>
+        </figure>
+<figure class="rcard">
+          <div class="stars">★★★★★</div>
+          <blockquote data-placeholder="1">Twenty posts a month I did not have to think about<span class="pn">.</span></blockquote>
+          <figcaption data-placeholder="1">Rhea M.</figcaption>
+        </figure>
+<figure class="rcard">
+          <div class="stars">★★★★★</div>
+          <blockquote data-placeholder="1">Our photos<span class="pn">,</span> our words<span class="pn">,</span> none of the fluff<span class="pn">.</span></blockquote>
+          <figcaption data-placeholder="1">Jules P.</figcaption>
+        </figure>
+<figure class="rcard">
+          <div class="stars">★★★★★</div>
+          <blockquote data-placeholder="1">Set the brand once in February<span class="pn">.</span> Still right<span class="pn">.</span></blockquote>
+          <figcaption data-placeholder="1">Ken A.</figcaption>
+        </figure>
+<figure class="rcard">
+          <div class="stars">★★★★★</div>
+          <blockquote data-placeholder="1">The refusal is the feature<span class="pn">.</span> Took me a month to see it<span class="pn">.</span></blockquote>
+          <figcaption data-placeholder="1">Ivy L.</figcaption>
+        </figure><figure class="rcard">
+          <div class="stars">★★★★★</div>
+          <blockquote data-placeholder="1">Cheaper than the agency and it actually asks me things<span class="pn">.</span></blockquote>
+          <figcaption data-placeholder="1">Nadia F.</figcaption>
+        </figure>
+<figure class="rcard">
+          <div class="stars">★★★★★</div>
+          <blockquote data-placeholder="1">It said it did not know and waited<span class="pn">.</span> I trust it more for that<span class="pn">.</span></blockquote>
+          <figcaption data-placeholder="1">Tom B.</figcaption>
+        </figure>
+<figure class="rcard">
+          <div class="stars">★★★★★</div>
+          <blockquote data-placeholder="1">Twenty posts a month I did not have to think about<span class="pn">.</span></blockquote>
+          <figcaption data-placeholder="1">Rhea M.</figcaption>
+        </figure>
+<figure class="rcard">
+          <div class="stars">★★★★★</div>
+          <blockquote data-placeholder="1">Our photos<span class="pn">,</span> our words<span class="pn">,</span> none of the fluff<span class="pn">.</span></blockquote>
+          <figcaption data-placeholder="1">Jules P.</figcaption>
+        </figure>
+<figure class="rcard">
+          <div class="stars">★★★★★</div>
+          <blockquote data-placeholder="1">Set the brand once in February<span class="pn">.</span> Still right<span class="pn">.</span></blockquote>
+          <figcaption data-placeholder="1">Ken A.</figcaption>
+        </figure>
+<figure class="rcard">
+          <div class="stars">★★★★★</div>
+          <blockquote data-placeholder="1">The refusal is the feature<span class="pn">.</span> Took me a month to see it<span class="pn">.</span></blockquote>
+          <figcaption data-placeholder="1">Ivy L.</figcaption>
+        </figure></div></div>
+</section>
+
+<section class="bg-cream"><div class="wrap">
+  <h2 class="h-lg rev">Give your restaurant the same content team<br>the chains already have</h2>
+  <div class="fgrid"><article class="fcard fcard--coral">
+          <div class="fcard-art"><img src="img/cafe-1775037.jpg" alt="" loading="lazy"></div>
+          <p class="fcard-cap" data-placeholder="1">Every post is built from your own room<span class="pn">,</span> your own menu<span class="pn">,</span> your own light<span class="pn">.</span></p>
+        </article>
+<article class="fcard fcard--cream">
+          <div class="fcard-art"><img src="img/cafe-31139336.jpg" alt="" loading="lazy"></div>
+          <p class="fcard-cap" data-placeholder="1">Corrections are memory<span class="pn">,</span> not a one-off edit<span class="pn">.</span> Say it once<span class="pn">.</span></p>
+        </article>
+<article class="fcard fcard--cream">
+          <div class="fcard-art"><img src="img/cafe-4828310.jpg" alt="" loading="lazy"></div>
+          <p class="fcard-cap" data-placeholder="1">It writes nothing it cannot stand behind — and tells you why<span class="pn">.</span></p>
+        </article>
+<article class="fcard fcard--coral">
+          <div class="fcard-art"><img src="img/cafe-35795108.jpg" alt="" loading="lazy"></div>
+          <p class="fcard-cap" data-placeholder="1">One place for the week: read it<span class="pn">,</span> change a line<span class="pn">,</span> approve<span class="pn">.</span></p>
+        </article></div>
+</div></section>
+
+<section><div class="wrap">
+  <h2 class="h-lg rev">Trusted by owners</h2>
+  <div class="cgrid"><article class="ccard">
+          <div class="ccard-art"><img src="img/cafe-12048451.jpg" alt="" loading="lazy"></div>
+          <div class="ccard-stat" data-placeholder="1">+54%</div>
+          <div class="ccard-label" data-placeholder="1">Saves per post</div>
+          <h3 data-placeholder="1">How a two-room café stopped posting into silence</h3>
+          <span class="ccard-more">Read the story <i>→</i></span>
+        </article>
+<article class="ccard">
+          <div class="ccard-art"><img src="img/cafe-15738014.jpg" alt="" loading="lazy"></div>
+          <div class="ccard-stat" data-placeholder="1">3 hrs</div>
+          <div class="ccard-label" data-placeholder="1">Back every week</div>
+          <h3 data-placeholder="1">The bakery that stopped paying a content freelancer</h3>
+          <span class="ccard-more">Read the story <i>→</i></span>
+        </article>
+<article class="ccard">
+          <div class="ccard-art"><img src="img/cafe-32691609.jpg" alt="" loading="lazy"></div>
+          <div class="ccard-stat" data-placeholder="1">RM0</div>
+          <div class="ccard-label" data-placeholder="1">Spent on an agency</div>
+          <h3 data-placeholder="1">Twelve outlets<span class="pn">,</span> one brand voice<span class="pn">,</span> no agency</h3>
+          <span class="ccard-more">Read the story <i>→</i></span>
+        </article></div>
+</div></section>
+
+<section class="bg-cream" id="beliefs"><div class="wrap">
+  <h2 class="h-lg rev">3 beliefs that guide our company</h2>
+  <div class="bgrid"><div class="belief"><h3 data-placeholder="1">Everyone else promises you everything<span class="pn">.</span> We do not<span class="pn">.</span></h3><p data-placeholder="1">Suara will tell you it does not know your jurisdiction, your licence, or your claim. That refusal is the product. A tool that never says no will eventually say something untrue about your business.</p></div>
+<div class="belief"><h3 data-placeholder="1">Small businesses deserve the tech the chains already have<span class="pn">.</span></h3><p data-placeholder="1">A chain has a content team. You have a Tuesday night. Suara is the part of that team you can actually afford, and it works the same way every week.</p></div>
+<div class="belief"><h3 data-placeholder="1">Your voice is yours<span class="pn">.</span> We only keep it<span class="pn">.</span></h3><p data-placeholder="1">Nothing here is a template with your name dropped in. It learns the way you write, and every correction you make is kept for good.</p></div></div>
+</div></section>
+
+<section id="guides"><div class="wrap">
+  <h2 class="h-lg rev">See our free guides on<br>growing your restaurant</h2>
+  <div class="ggrid"><article class="gcard gcard--wide"><img src="img/cafe-6665959.jpg" alt="" loading="lazy"><h3 data-placeholder="1">The week a café should never post</h3></article>
+<article class="gcard gcard--tall"><img src="img/cafe-19651306.jpg" alt="" loading="lazy"><h3 data-placeholder="1">What to shoot on a slow Tuesday</h3></article>
+<article class="gcard gcard--tall"><img src="img/cafe-4109453.jpg" alt="" loading="lazy"><h3 data-placeholder="1">Why your photos look worse than the room</h3></article></div>
+</div></section>
+
+<section id="cta"><div class="wrap"><div class="final rev">
+  <h2 class="h-md">The easiest way to grow your restaurant online<span class="pn">.</span></h2>
+  <div class="final-btns">
+    <a class="pill pill--coral" href="#">Start free</a>
+    <a class="pill pill--ghost" href="#how">See how it works</a>
+  </div>
+</div></div></section>
+</main>
+
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="#"><i></i>Suara</a>
+  <div class="fgrid2">
+    <div class="fcol"><h4>Get found</h4>
+      <a href="#">Instagram &amp; Facebook</a><a href="#">Stories</a><a href="#">Local posts</a>
+      <a href="#">Menu photography</a></div>
+    <div class="fcol"><h4>Keep them coming back</h4>
+      <a href="#">Weekly content plan</a><a href="#">Brand memory</a><a href="#">Reels &amp; TikTok</a>
+      <a href="#">Seasonal campaigns</a></div>
+    <div class="fcol"><h4>Run it</h4>
+      <a href="#">Approve on your phone</a><a href="#">Auto-posting</a><a href="#">Team access</a>
+      <a href="#">Reporting</a></div>
+    <div class="fcol"><h4>Company</h4>
+      <a href="#beliefs">What it refuses to do</a><a href="#">Pricing</a><a href="#">About</a>
+      <a href="#">Contact</a></div>
+  </div>
+  <div class="foot-end"><span>2026 © Suara. All rights reserved.</span>
+    <span>Privacy · Terms · Accessibility</span></div>
+</div></footer>
+
+<script>
+// Rotating hero clause — per-character, matching owner.com's SplitText treatment.
+(function(){
+  var host=document.getElementById('rot'), words=["post every day.", "stay on brand.", "never invent a claim.", "sound like you."], i=0;
+  if(!host) return;
+  function paint(t,cls){
+    host.className='rot '+cls; host.innerHTML='';
+    t.split('').forEach(function(c,n){
+      var s=document.createElement('span');
+      // punctuation gets the same optical kern as dt() applies to static display text
+      s.className = (c===','||c==='.') ? 'ch pn' : 'ch';
+      s.textContent = c===' ' ? '\u00a0' : c;
+      s.style.animationDelay=(n*0.022)+'s'; host.appendChild(s);
+    });
+  }
+  paint(words[0],'in');
+  setInterval(function(){
+    host.className='rot out';
+    setTimeout(function(){ i=(i+1)%words.length; paint(words[i],'in'); },380);
+  },2900);
+})();
+
+// Scroll reveal with sibling stagger.
+(function(){
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(en){
+      if(!en.isIntersecting) return;
+      var el=en.target, sibs=Array.prototype.slice.call(el.parentNode.children);
+      el.style.transitionDelay=(Math.min(sibs.indexOf(el),6)*0.07)+'s';
+      el.classList.add('on'); io.unobserve(el);
+    });
+  },{rootMargin:'0px 0px -12% 0px',threshold:0.08});
+  document.querySelectorAll('.rev').forEach(function(el){io.observe(el)});
+})();
+
+// Feature tabs.
+(function(){
+  var tabs=document.querySelectorAll('.tab'), panes=document.querySelectorAll('.pane');
+  tabs.forEach(function(t){
+    t.addEventListener('click',function(){
+      tabs.forEach(function(x){x.classList.remove('is-on')});
+      panes.forEach(function(x){x.classList.remove('is-on')});
+      t.classList.add('is-on');
+      document.querySelector('[data-pane="'+t.dataset.tab+'"]').classList.add('is-on');
+    });
+  });
+})();
+
+// Drag-to-scroll on the owner row — owner.com uses GSAP Draggable for this.
+(function(){
+  var row=document.querySelector('.orow'); if(!row) return;
+  var down=false,x0=0,l0=0;
+  row.addEventListener('pointerdown',function(e){
+    down=true;x0=e.clientX;l0=row.scrollLeft;row.classList.add('drag');
+    row.setPointerCapture(e.pointerId);
+  });
+  row.addEventListener('pointermove',function(e){
+    if(!down)return; row.scrollLeft=l0-(e.clientX-x0);
+  });
+  ['pointerup','pointercancel'].forEach(function(ev){
+    row.addEventListener(ev,function(){down=false;row.classList.remove('drag')});
+  });
+})();
+</script>
