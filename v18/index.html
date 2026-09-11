@@ -761,60 +761,33 @@ section{padding:clamp(68px,7.6vw,100px) 0 clamp(76px,8.6vw,116px)}
 .pr-step h3{margin-top:clamp(18px,2.2vw,30px);font-size:clamp(15px,1.25vw,17px);font-weight:700}
 .pr-step p{margin-top:9px;font-size:clamp(13px,1.05vw,14.5px);line-height:1.45;
   color:rgba(26,21,32,.62)}
-.pr-steps{padding-bottom:clamp(26px,3.4vw,46px)}
-/* the art hangs off the same grid column as the steps, tucked directly under them and running
-   off the right edge — no gap, no rounded card */
-.pr-artwrap{grid-column:2;margin-top:0;position:relative}
-.pr-art{display:block;width:calc(100% + 50vw - 50% + clamp(20px,4vw,56px));max-width:none;
-  border-radius:clamp(14px,1.6vw,20px) 0 0 0}
-@media(max-width:900px){.pr-artwrap{grid-column:1}
-  .pr-art{width:100%;border-radius:14px}}
-@media(max-width:900px){.pr-grid{grid-template-columns:1fr}
-  .pr-steps{grid-template-columns:repeat(2,1fr);gap:24px}
-  .pr-step{border-left:0;padding-left:0}}
-
-/* a coral-on-coral button has nowhere to go — the paid card's CTA inverts */
-.plan--hero .plan-cta.gbtn{background:#fff;color:#E24A28;
-  box-shadow:0 10px 26px rgba(90,25,10,.24)}
-.plan--hero .plan-cta.gbtn::before{background:linear-gradient(var(--b-angle),
-  rgba(255,255,255,.9),rgba(255,255,255,.5))}
-.plan--hero .plan-cta.gbtn:hover{background:#FDF7EF}
-
-/* ── the profile demo ── */
-.profile{background:#FFFFFF;border-radius:18px;padding:16px;
-  border:1px solid rgba(26,21,32,.07);box-shadow:0 14px 34px rgba(60,20,10,.14)}
-.pf-top{display:flex;align-items:center;gap:18px}
-.pf-av{width:62px;height:62px;border-radius:50%;overflow:hidden;flex:0 0 62px;
-  box-shadow:0 0 0 2px #fff,0 0 0 4px #FF6A45}
-.pf-av img{width:100%;height:100%;object-fit:cover}
-.pf-stats{display:flex;gap:20px;flex:1}
-.pf-stats div{display:flex;flex-direction:column;align-items:center;gap:1px}
-.pf-stats b{font-size:15px;letter-spacing:-.01em}
-.pf-stats i{font-style:normal;font-size:12px;color:rgba(26,21,32,.55)}
-.pf-bio{margin-top:12px;display:flex;flex-direction:column;gap:2px;font-size:13px;
-  line-height:1.35;color:rgba(26,21,32,.72)}
-.pf-bio b{font-size:13.5px;color:#1A1520}
-.pf-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:14px;
-  border-radius:8px;overflow:hidden}
-.pf-grid span{aspect-ratio:1;overflow:hidden;display:block}
-.pf-grid img{width:100%;height:100%;object-fit:cover}
-
-/* ── the correction demo ── */
-.corr{background:#FFFFFF;border-radius:18px;padding:18px;
-  border:1px solid rgba(26,21,32,.07);box-shadow:0 14px 34px rgba(60,20,10,.14);
-  display:flex;flex-direction:column;gap:11px}
-.corr-head{display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(26,21,32,.5)}
-.corr-mk{width:16px;display:block}
-.corr-was{margin:0;font-size:15px;color:rgba(26,21,32,.4);text-decoration:line-through;
-  text-decoration-color:rgba(226,74,40,.6)}
-.corr-you{align-self:flex-end;max-width:88%;background:#E24A28;color:#fff;
-  font-size:13.5px;line-height:1.35;padding:10px 14px;border-radius:14px;
-  border-bottom-right-radius:5px}
-.corr-now{margin:0;font-size:15.5px;font-weight:600;letter-spacing:-.015em;color:#1A1520}
-.corr-kept{display:flex;align-items:center;gap:8px;margin-top:2px;padding-top:11px;
-  border-top:1px solid rgba(26,21,32,.08);font-size:12.5px;color:rgba(26,21,32,.55)}
-.corr-tick{width:18px;height:18px;border-radius:50%;background:#E24A28;color:#fff;
-  font-size:11px;display:grid;place-items:center;flex:0 0 18px}
+.pr-steps{padding-bottom:clamp(22px,2.8vw,38px)}
+/* the stage sits in the steps column and uses the SAME four tracks, so each glass panel is the
+   continuation of the rule above it — which is what the reference is actually doing */
+.pr-stage{grid-column:2;position:relative;height:clamp(240px,26vw,360px);overflow:hidden;
+  border-radius:clamp(12px,1.4vw,18px) 0 0 0;
+  background:linear-gradient(180deg,#F3EADF,#EDE2D4)}
+.pr-blob{position:absolute;bottom:-8%;border-radius:50%;filter:blur(2px);display:block}
+.pr-blob--1{left:4%;width:30%;height:78%;
+  background:radial-gradient(closest-side,#FF6A45,rgba(255,106,69,0) 72%)}
+.pr-blob--2{left:36%;width:32%;height:86%;
+  background:radial-gradient(closest-side,#FF8A4B,rgba(255,138,75,0) 72%)}
+.pr-blob--3{left:68%;width:34%;height:74%;
+  background:radial-gradient(closest-side,#FFC24B,rgba(255,194,75,0) 72%)}
+.pr-panels{position:absolute;inset:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.pr-pane{position:relative;display:block;margin:clamp(18px,2.4vw,40px) clamp(8px,1vw,16px) 0;
+  border-radius:3px;background:rgba(255,255,255,.3);
+  backdrop-filter:blur(7px) saturate(115%);-webkit-backdrop-filter:blur(7px) saturate(115%);
+  border:1px solid rgba(255,255,255,.5);
+  box-shadow:0 18px 40px rgba(120,60,30,.1)}
+/* every other panel is fluted, as in the reference */
+.pr-pane--rib::after{content:"";position:absolute;inset:0;border-radius:inherit;
+  background:repeating-linear-gradient(90deg,rgba(255,255,255,.42) 0 2px,
+    rgba(255,255,255,0) 2px 6px)}
+.pr-pane:nth-child(1){margin-top:clamp(30px,4vw,64px)}
+.pr-pane:nth-child(3){margin-top:clamp(24px,3.2vw,52px)}
+.pr-pane:nth-child(4){margin-top:clamp(38px,5vw,80px)}
+@media(max-width:900px){.pr-stage{grid-column:1;border-radius:14px}}
 
 /* ── pricing ──────────────────────────────────────────────────────────────────────────────
    Splash per plan (generated artwork, cut to transparent), the highlighted plan carried by an ink
@@ -903,6 +876,42 @@ section{padding:clamp(68px,7.6vw,100px) 0 clamp(76px,8.6vw,116px)}
   *{animation:none!important;transition:none!important}
   .rev,.gs-row,.feedgrid span{opacity:1;transform:none} .rot .ch{opacity:1;transform:none}
 }
+/* ── the profile demo ── */
+.profile{background:#FFFFFF;border-radius:18px;padding:16px;
+  border:1px solid rgba(26,21,32,.07);box-shadow:0 14px 34px rgba(60,20,10,.14)}
+.pf-top{display:flex;align-items:center;gap:18px}
+.pf-av{width:62px;height:62px;border-radius:50%;overflow:hidden;flex:0 0 62px;
+  box-shadow:0 0 0 2px #fff,0 0 0 4px #FF6A45}
+.pf-av img{width:100%;height:100%;object-fit:cover}
+.pf-stats{display:flex;gap:20px;flex:1}
+.pf-stats div{display:flex;flex-direction:column;align-items:center;gap:1px}
+.pf-stats b{font-size:15px;letter-spacing:-.01em}
+.pf-stats i{font-style:normal;font-size:12px;color:rgba(26,21,32,.55)}
+.pf-bio{margin-top:12px;display:flex;flex-direction:column;gap:2px;font-size:13px;
+  line-height:1.35;color:rgba(26,21,32,.72)}
+.pf-bio b{font-size:13.5px;color:#1A1520}
+.pf-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:14px;
+  border-radius:8px;overflow:hidden}
+.pf-grid span{aspect-ratio:1;overflow:hidden;display:block}
+.pf-grid img{width:100%;height:100%;object-fit:cover}
+
+/* ── the correction demo ── */
+.corr{background:#FFFFFF;border-radius:18px;padding:18px;
+  border:1px solid rgba(26,21,32,.07);box-shadow:0 14px 34px rgba(60,20,10,.14);
+  display:flex;flex-direction:column;gap:11px}
+.corr-head{display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(26,21,32,.5)}
+.corr-mk{width:16px;display:block}
+.corr-was{margin:0;font-size:15px;color:rgba(26,21,32,.4);text-decoration:line-through;
+  text-decoration-color:rgba(226,74,40,.6)}
+.corr-you{align-self:flex-end;max-width:88%;background:#E24A28;color:#fff;
+  font-size:13.5px;line-height:1.35;padding:10px 14px;border-radius:14px;
+  border-bottom-right-radius:5px}
+.corr-now{margin:0;font-size:15.5px;font-weight:600;letter-spacing:-.015em;color:#1A1520}
+.corr-kept{display:flex;align-items:center;gap:8px;margin-top:2px;padding-top:11px;
+  border-top:1px solid rgba(26,21,32,.08);font-size:12.5px;color:rgba(26,21,32,.55)}
+.corr-tick{width:18px;height:18px;border-radius:50%;background:#E24A28;color:#fff;
+  font-size:11px;display:grid;place-items:center;flex:0 0 18px}
+
 </style>
 
 <header class="nav"><div class="wrap nav-in">
@@ -1112,8 +1121,16 @@ Everything else after.</p>
           <h3 data-placeholder="1">It posts</h3>
           <p data-placeholder="1">Instagram and Facebook, sized and captioned for each.</p>
         </div></div>
-        <div class="pr-artwrap">
-          <img class="pr-art" src="brand/glass-forms.png" alt="" loading="lazy">
+        <div class="pr-stage" aria-hidden="true">
+          <span class="pr-blob pr-blob--1"></span>
+          <span class="pr-blob pr-blob--2"></span>
+          <span class="pr-blob pr-blob--3"></span>
+          <div class="pr-panels">
+            <span class="pr-pane pr-pane--rib"></span>
+            <span class="pr-pane"></span>
+            <span class="pr-pane pr-pane--rib"></span>
+            <span class="pr-pane"></span>
+          </div>
         </div>
       </div>
     </div></section>
