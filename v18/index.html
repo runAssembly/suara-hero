@@ -937,6 +937,13 @@ section{padding:clamp(68px,7.6vw,100px) 0 clamp(76px,8.6vw,116px)}
 .bg-cream,.pricing,.proc{background:linear-gradient(180deg,#FFFFFF 0%,#FDF7EF 9%,
   #FDF7EF 91%,#FFFFFF 100%)}
 
+/* same problem as the paid pricing card: a coral gradient button on a coral field reads as a
+   dark blob. On the CTA it inverts to white. */
+.final .gbtn{background:#fff;color:#E24A28;box-shadow:0 12px 30px rgba(90,25,10,.28)}
+.final .gbtn::before{background:linear-gradient(var(--b-angle),rgba(255,255,255,.9),
+  rgba(255,255,255,.5))}
+.final .gbtn:hover{background:#FDF7EF}
+
 </style>
 
 <header class="nav"><div class="wrap nav-in">
