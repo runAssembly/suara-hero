@@ -53,7 +53,9 @@ section{padding:clamp(68px,7.6vw,100px) 0 clamp(76px,8.6vw,116px)}
 .brand .mk{width:24px;display:block} .brand .wd{width:80px;display:block;margin-bottom:1px}
 .nav-links{display:flex;gap:28px;margin:0 auto;font-size:15px;font-weight:600}
 .nav-links span{opacity:.55;font-size:11px}
-.nav-cta{display:flex;align-items:center;gap:18px;font-size:15px;font-weight:600}
+
+.nav-cta{display:flex;align-items:center;gap:18px;font-size:15px;font-weight:600;
+  margin-left:auto}
 .pill{display:inline-flex;align-items:center;gap:9px;border-radius:999px;padding:13px 24px;
   font-weight:700;font-size:15px;transition:transform .25s cubic-bezier(.2,.7,.3,1),box-shadow .25s}
 
@@ -201,7 +203,21 @@ section{padding:clamp(68px,7.6vw,100px) 0 clamp(76px,8.6vw,116px)}
 .tab.is-on::after{animation:tabFill var(--dwell,7s) linear forwards}
 @keyframes tabFill{from{width:0}to{width:100%}}
 @media(prefers-reduced-motion:reduce){.tab.is-on::after{width:100%;animation:none}}
-@media(max-width:820px){.pane.is-on{grid-template-columns:1fr;align-items:start}
+
+.stepnav{display:flex;align-items:center;justify-content:center;gap:18px;
+  margin-top:clamp(18px,2.2vw,26px)}
+.stepbtn{width:46px;height:46px;border-radius:50%;border:1px solid rgba(26,21,32,.14);
+  background:#FFFFFF;color:#1A1520;font-size:17px;line-height:1;cursor:pointer;
+  display:grid;place-items:center;
+  transition:background .2s ease,border-color .2s ease,transform .2s ease}
+.stepbtn:hover{background:#FDF7EF;border-color:rgba(26,21,32,.24)}
+.stepbtn:active{transform:scale(.94)}
+.stepdots{display:flex;align-items:center;gap:8px}
+.stepdot{width:7px;height:7px;border-radius:50%;background:rgba(26,21,32,.16);
+  transition:background .25s ease,transform .25s ease}
+.stepdot.is-on{background:#FF6A45;transform:scale(1.32)}
+
+@media(max-width:820px){.pane{grid-template-columns:1fr;align-items:start}
   .pane-demo{justify-self:center;margin-top:26px}}
 
 .excard{background:#FAF7F2;border-radius:16px;padding:22px 20px 18px;
@@ -437,8 +453,9 @@ section{padding:clamp(68px,7.6vw,100px) 0 clamp(76px,8.6vw,116px)}
   color:rgba(255,255,255,.87);font-size:calc(19.95*var(--u));font-weight:400;
   letter-spacing:calc(-.36*var(--u));line-height:1.45;text-align:center;
   text-shadow:0 1px 2px rgba(60,21,35,.16)}
-.mcard__btn{position:absolute;z-index:6;top:83.75%;left:50%;width:calc(111*var(--u));
-  height:calc(45*var(--u));transform:translateX(-50%);border-radius:999px;color:#2d2d2d;
+
+.mcard__btn{position:absolute;z-index:6;bottom:20px;left:50%;width:calc(111*var(--u));
+  height:calc(45*var(--u));min-height:42px;transform:translateX(-50%);border-radius:999px;color:#2d2d2d;
   background:rgba(255,255,255,.97);display:grid;place-items:center;
   box-shadow:0 1px 0 rgba(255,255,255,.5) inset,0 1px 3px rgba(58,25,39,.08);
   font-size:calc(14*var(--u));letter-spacing:calc(-.25*var(--u));
@@ -488,7 +505,8 @@ section{padding:clamp(68px,7.6vw,100px) 0 clamp(76px,8.6vw,116px)}
   --b-angle:190deg;--b1:rgba(255,236,211,.2);--b2:rgba(255,194,75,.7)}
 .gbtn:focus-visible{outline:2px solid #1A1520;outline-offset:3px}
 
-.mcard__btn.gbtn{min-width:0;width:calc(120*var(--u));height:calc(45*var(--u));padding:0;
+.mcard__btn.gbtn{position:absolute;bottom:calc(22*var(--u));top:auto;
+  min-width:0;width:calc(120*var(--u));height:calc(45*var(--u));padding:0;
   border-radius:calc(11*var(--u));font-size:calc(14*var(--u))}
 @media(prefers-reduced-motion:reduce){.gbtn{transition:none}}
 
@@ -1098,6 +1116,14 @@ Everything else after.</p>
           </div>
           <div class="pane-demo"><div class="demo demo--flush"><div class="thread"><div class="th-head"><span class="th-mk"><svg viewBox="0 0 1000 909"><g transform="translate(0,0)"><path d="M0.00,409.00 A500.00,500.00 0 0 0 1000.00,409.00 Z" fill="#E24A28" stroke="#E24A28" stroke-width="3.00" stroke-linejoin="round" stroke-linecap="round"/><path d="M640.00,352.43 L879.22,255.79 A409.00,409.00 0 0 0 762.90,95.69 L597.06,293.33 A151.00,151.00 0 0 1 640.00,352.43 Z" fill="#E24A28" stroke="#E24A28" stroke-width="3.00" stroke-linejoin="round" stroke-linecap="round"/><path d="M532.95,292.57 L608.50,25.56 A398.50,398.50 0 0 0 391.50,25.56 L467.05,292.57 A121.00,121.00 0 0 1 532.95,292.57 Z" fill="#E24A28" stroke="#E24A28" stroke-width="3.00" stroke-linejoin="round" stroke-linecap="round"/><path d="M402.94,293.33 L237.10,95.69 A409.00,409.00 0 0 0 120.78,255.79 L360.00,352.43 A151.00,151.00 0 0 1 402.94,293.33 Z" fill="#E24A28" stroke="#E24A28" stroke-width="3.00" stroke-linejoin="round" stroke-linecap="round"/></g></svg></span><b data-placeholder="1">Suara</b><span class="th-live" data-placeholder="1">now</span></div><div class="th-body"><div class="th-msg th-msg--in" style="--d:0.15s"><span data-placeholder="1">Your week is ready — 7 posts, Mon to Sun. Want to look?</span></div><div class="th-msg th-msg--in" style="--d:0.65s"><div class="th-prev"><span><img src="img/cafe-1775037.jpg" alt="" loading="lazy"></span><span><img src="img/cafe-31139336.jpg" alt="" loading="lazy"></span><span><img src="img/cafe-4828310.jpg" alt="" loading="lazy"></span><b data-placeholder="1">7 posts</b></div></div><div class="th-msg th-msg--out" style="--d:1.15s"><span data-placeholder="1">swap thursday&#x27;s photo, use the laksa one</span></div><div class="th-msg th-msg--in" style="--d:1.65s"><span data-placeholder="1">Done. Thursday now uses the laksa shot.</span></div><div class="th-msg th-msg--out" style="--d:2.15s"><span data-placeholder="1">post it</span></div><div class="th-msg th-msg--in" style="--d:2.65s"><span data-placeholder="1">Scheduled. 7 posts, Mon–Sun.</span><span class="th-tick">✓</span></div></div></div></div></div>
         </div></div>
+  
+  <div class="stepnav rev">
+    <button class="stepbtn" data-dir="-1" aria-label="Previous step">&#8592;</button>
+    <span class="stepdots" aria-hidden="true">
+      <i class="stepdot is-on"></i><i class="stepdot"></i><i class="stepdot"></i><i class="stepdot"></i>
+    </span>
+    <button class="stepbtn" data-dir="1" aria-label="Next step">&#8594;</button>
+  </div>
 </div></section>
 
 <section class="cmp" id="gate"><div class="wrap">
@@ -1301,6 +1327,7 @@ Everything else after.</p>
 (function(){
   var tabs=[].slice.call(document.querySelectorAll('.tab'));
   var panes=[].slice.call(document.querySelectorAll('.pane'));
+  var dots=[].slice.call(document.querySelectorAll('.stepdot'));
   if(!tabs.length) return;
   var DWELL=7000, i=0, timer=null;
   var reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
@@ -1315,10 +1342,17 @@ Everything else after.</p>
       if(k===n){ void t.offsetWidth; t.classList.add('is-on'); }   // restart the fill
     });
     panes[n].classList.add('is-on');
+    dots.forEach(function(d,k){ d.classList.toggle('is-on', k===n); });
   }
   function start(){ if(reduce) return; clearInterval(timer);
     timer=setInterval(function(){ show((i+1)%tabs.length); }, DWELL); }
   tabs.forEach(function(t,k){ t.addEventListener('click',function(){ show(k); start(); }); });
+  document.querySelectorAll('.stepbtn').forEach(function(b){
+    b.addEventListener('click',function(){
+      var d=parseInt(b.dataset.dir,10);
+      show((i + d + tabs.length) % tabs.length); start();
+    });
+  });
   document.documentElement.style.setProperty('--dwell', (DWELL/1000)+'s');
   start();
 })();
