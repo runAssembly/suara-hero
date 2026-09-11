@@ -512,8 +512,7 @@ section{padding:clamp(68px,7.6vw,100px) 0 clamp(76px,8.6vw,116px)}
    plane and out as they pass. Negative animation-delay on each tile means the corridor is full
    on the very first frame instead of assembling itself while someone watches. */
 .stream{position:relative;margin-top:clamp(26px,3.2vw,44px);height:clamp(340px,40vw,520px);
-  overflow:hidden;border-radius:clamp(22px,2.6vw,34px);
-  background:radial-gradient(120% 90% at 50% 40%,#FDF7EF,#FFE2D6 70%,#F7D9CC 100%);
+  overflow:hidden;background:transparent;
   perspective:900px;perspective-origin:50% 50%}
 .stream-space{position:absolute;inset:0;transform-style:preserve-3d}
 /* ⛔ x/y were applied as margins on the TILE, so the percentages resolved against a 100px tile
@@ -532,9 +531,8 @@ section{padding:clamp(68px,7.6vw,100px) 0 clamp(76px,8.6vw,116px)}
 }
 /* the near edge has to dissolve or tiles visibly clip against the container */
 .stream-fade{position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(125% 85% at 50% 50%,transparent 52%,rgba(253,247,239,.55) 88%),
-    linear-gradient(90deg,#FDF7EF,transparent 9%,transparent 91%,#FDF7EF),
-    linear-gradient(180deg,#FDF7EF,transparent 14%,transparent 84%,#FDF7EF)}
+  background:linear-gradient(90deg,#FFFFFF,transparent 10%,transparent 90%,#FFFFFF),
+    linear-gradient(180deg,#FFFFFF,transparent 15%,transparent 85%,#FFFFFF)}
 @media(prefers-reduced-motion:reduce){
   .tile{animation:none;opacity:1;transform:translate(-50%,-50%) translateZ(-400px)}
 }
@@ -664,7 +662,7 @@ section{padding:clamp(68px,7.6vw,100px) 0 clamp(76px,8.6vw,116px)}
     <p class="hero-note">14 days free · no card · your Google listing is enough to begin</p>
   </div>
   <div class="stream rev" aria-hidden="true">
-    <div class="stream-space"></div>
+    <div class="stream-space"><span class="tile" style="--x:30.0%;--y:0.0%;--d:-0.00s"><img src="stream/s00.jpg" alt="" loading="lazy"></span><span class="tile" style="--x:-27.7%;--y:24.1%;--d:-0.72s"><img src="stream/s01.jpg" alt="" loading="lazy"></span><span class="tile" style="--x:3.9%;--y:-42.6%;--d:-1.44s"><img src="stream/s02.jpg" alt="" loading="lazy"></span><span class="tile" style="--x:31.9%;--y:39.6%;--d:-2.17s"><img src="stream/s03.jpg" alt="" loading="lazy"></span><span class="tile" style="--x:-59.1%;--y:-9.9%;--d:-2.89s"><img src="stream/s04.jpg" alt="" loading="lazy"></span><span class="tile" style="--x:57.0%;--y:-34.4%;--d:-3.61s"><img src="stream/s05.jpg" alt="" loading="lazy"></span><span class="tile" style="--x:-19.5%;--y:68.8%;--d:-4.33s"><img src="stream/s06.jpg" alt="" loading="lazy"></span><span class="tile" style="--x:-13.8%;--y:-25.3%;--d:-5.06s"><img src="stream/s07.jpg" alt="" loading="lazy"></span><span class="tile" style="--x:35.2%;--y:12.2%;--d:-5.78s"><img src="stream/s08.jpg" alt="" loading="lazy"></span><span class="tile" style="--x:-41.6%;--y:16.3%;--d:-6.50s"><img src="stream/s09.jpg" alt="" loading="lazy"></span><span class="tile" style="--x:22.3%;--y:-45.2%;--d:-7.22s"><img src="stream/s10.jpg" alt="" loading="lazy"></span><span class="tile" style="--x:18.0%;--y:54.4%;--d:-7.94s"><img src="stream/s11.jpg" alt="" loading="lazy"></span><span class="tile" style="--x:-58.4%;--y:-32.2%;--d:-8.67s"><img src="stream/s12.jpg" alt="" loading="lazy"></span><span class="tile" style="--x:73.3%;--y:-15.3%;--d:-9.39s"><img src="stream/s13.jpg" alt="" loading="lazy"></span><span class="tile" style="--x:-17.3%;--y:23.3%;--d:-10.11s"><img src="stream/s14.jpg" alt="" loading="lazy"></span><span class="tile" style="--x:-4.8%;--y:-35.3%;--d:-10.83s"><img src="stream/s15.jpg" alt="" loading="lazy"></span><span class="tile" style="--x:34.4%;--y:27.5%;--d:-11.56s"><img src="stream/s16.jpg" alt="" loading="lazy"></span><span class="tile" style="--x:-52.5%;--y:2.1%;--d:-12.28s"><img src="stream/s17.jpg" alt="" loading="lazy"></span><span class="tile" style="--x:42.5%;--y:-40.2%;--d:-13.00s"><img src="stream/s18.jpg" alt="" loading="lazy"></span><span class="tile" style="--x:-3.1%;--y:64.1%;--d:-13.72s"><img src="stream/s19.jpg" alt="" loading="lazy"></span><span class="tile" style="--x:-48.1%;--y:-54.7%;--d:-14.44s"><img src="stream/s20.jpg" alt="" loading="lazy"></span><span class="tile" style="--x:29.7%;--y:3.8%;--d:-15.17s"><img src="stream/s21.jpg" alt="" loading="lazy"></span><span class="tile" style="--x:-30.8%;--y:20.3%;--d:-15.89s"><img src="stream/s22.jpg" alt="" loading="lazy"></span><span class="tile" style="--x:9.9%;--y:-41.7%;--d:-16.61s"><img src="stream/s23.jpg" alt="" loading="lazy"></span><span class="tile" style="--x:26.1%;--y:43.3%;--d:-17.33s"><img src="stream/s24.jpg" alt="" loading="lazy"></span><span class="tile" style="--x:-57.2%;--y:-17.3%;--d:-18.06s"><img src="stream/s25.jpg" alt="" loading="lazy"></span><span class="tile" style="--x:61.3%;--y:-26.9%;--d:-18.78s"><img src="stream/s26.jpg" alt="" loading="lazy"></span><span class="tile" style="--x:-29.0%;--y:65.7%;--d:-19.50s"><img src="stream/s27.jpg" alt="" loading="lazy"></span><span class="tile" style="--x:-10.2%;--y:-26.8%;--d:-20.22s"><img src="stream/s28.jpg" alt="" loading="lazy"></span><span class="tile" style="--x:33.2%;--y:16.6%;--d:-20.94s"><img src="stream/s29.jpg" alt="" loading="lazy"></span><span class="tile" style="--x:-43.5%;--y:10.9%;--d:-21.67s"><img src="stream/s30.jpg" alt="" loading="lazy"></span><span class="tile" style="--x:28.4%;--y:-42.0%;--d:-22.39s"><img src="stream/s31.jpg" alt="" loading="lazy"></span><span class="tile" style="--x:10.2%;--y:56.2%;--d:-23.11s"><img src="stream/s32.jpg" alt="" loading="lazy"></span><span class="tile" style="--x:-53.4%;--y:-39.3%;--d:-23.83s"><img src="stream/s33.jpg" alt="" loading="lazy"></span><span class="tile" style="--x:74.7%;--y:-5.9%;--d:-24.56s"><img src="stream/s34.jpg" alt="" loading="lazy"></span><span class="tile" style="--x:-20.4%;--y:20.9%;--d:-25.28s"><img src="stream/s35.jpg" alt="" loading="lazy"></span></div>
     <div class="stream-fade"></div>
   </div>
 </div></section>
@@ -1015,6 +1013,13 @@ Everything else after.</p>
     });
   },{rootMargin:'0px 0px -10% 0px',threshold:0.08});
   document.querySelectorAll('.rev').forEach(function(el){io.observe(el)});
+  function sweep(){
+    document.querySelectorAll('.rev:not(.on)').forEach(function(el){
+      if(el.getBoundingClientRect().top < window.innerHeight) el.classList.add('on');
+    });
+  }
+  addEventListener('scroll', sweep, {passive:true});
+  addEventListener('load', function(){ setTimeout(sweep, 2500); });
 })();
 
 (function(){
