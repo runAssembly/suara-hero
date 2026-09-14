@@ -1,0 +1,124 @@
+
+/* Additions for the sub-pages. The shared suara.css carries every token; this file only
+   adds layouts that do not exist on the homepage. */
+
+.draftbar{position:sticky;top:0;z-index:70;display:flex;gap:12px;align-items:center;
+  justify-content:center;flex-wrap:wrap;padding:9px 18px;background:#1A1520;color:#fff;
+  font-size:13px;line-height:1.3;text-align:center}
+.draftbar b{background:#E24A28;padding:3px 9px;border-radius:999px;font-size:11px;
+  letter-spacing:.06em;text-transform:uppercase;font-weight:800}
+.draftbar span{opacity:.82}
+
+/* page hero — a cream band under the nav, not the homepage's photo stage */
+.phero{background:#FDF7EF;padding:clamp(54px,7vw,92px) 0 clamp(48px,6vw,76px);
+  border-bottom:1px solid rgba(26,21,32,.06)}
+.phero .eyebrow{margin-bottom:16px}
+.phero h1{max-width:16ch}
+.phero .lede{margin-top:20px}
+.pcrumb{font-size:13px;font-weight:600;color:rgba(26,21,32,.5);margin-bottom:18px}
+.pcrumb a{color:inherit;border-bottom:1px solid rgba(26,21,32,.22)}
+.pcrumb a:hover{color:#E24A28;border-bottom-color:#E24A28}
+
+/* two-column: copy beside an artefact */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4.4vw,72px);align-items:center}
+.split--narrow{grid-template-columns:1fr .86fr}
+@media(max-width:900px){.split,.split--narrow{grid-template-columns:1fr;gap:34px}}
+
+/* the standalone message thread. ⛔ .th-body on the homepage carries a mask that fades its
+   top 14% to transparent, because there it is deliberately cut off. A full thread needs
+   the first message VISIBLE, so the mask is removed here. */
+.threadcard{max-width:430px;width:100%;margin:0 auto;border-radius:22px;overflow:hidden;
+  background:#fff;box-shadow:0 26px 64px rgba(26,21,32,.16);border:1px solid rgba(26,21,32,.07)}
+.threadcard .th-body{-webkit-mask-image:none;mask-image:none;padding:18px;gap:10px}
+.threadcard .th-msg{font-size:14.5px}
+
+/* numbered rule list */
+.rules{display:grid;gap:14px;margin-top:38px}
+.rule{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start;
+  padding:24px clamp(20px,2.4vw,30px);border-radius:20px;background:#fff;
+  border:1px solid rgba(26,21,32,.08)}
+.rule-n{font-size:13px;font-weight:800;color:#E24A28;background:rgba(226,74,40,.1);
+  width:34px;height:34px;border-radius:50%;display:grid;place-items:center}
+.rule h3{margin-bottom:8px}
+/* max-width, not a narrower card: at 1440 these paragraphs ran to ~110 characters a line,
+   which is roughly half again the width anyone reads comfortably. */
+.rule p{font-size:15.5px;line-height:1.5;max-width:68ch}
+
+/* blocked / allowed worked examples */
+.exs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:38px}
+@media(max-width:900px){.exs{grid-template-columns:1fr}}
+.ex{padding:26px;border-radius:20px;border:1px solid rgba(26,21,32,.08);background:#fff}
+.ex--no{background:#FDF7EF}
+.ex--yes{background:rgba(226,74,40,.055);border-color:rgba(226,74,40,.22)}
+.ex-flag{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:800;
+  letter-spacing:.06em;text-transform:uppercase;padding:5px 11px;border-radius:999px;
+  margin-bottom:16px}
+.ex--no .ex-flag{background:rgba(26,21,32,.08);color:rgba(26,21,32,.62)}
+.ex--yes .ex-flag{background:#E24A28;color:#fff}
+.ex-quote{font-size:clamp(18px,1.7vw,21px);font-weight:700;letter-spacing:-.02em;
+  line-height:1.25;margin-bottom:14px}
+.ex p{font-size:15px;line-height:1.5}
+
+/* plain tile grid */
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:38px}
+@media(max-width:820px){.tiles{grid-template-columns:1fr}}
+.tilec{padding:28px;border-radius:20px;background:#FDF7EF;border:1px solid rgba(26,21,32,.06)}
+.tilec h3{margin-bottom:10px}
+.tilec p{font-size:15.5px;line-height:1.5}
+
+/* people */
+.people{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px}
+@media(max-width:820px){.people{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.people{grid-template-columns:1fr}}
+.person{border-radius:20px;overflow:hidden;background:#fff;border:1px solid rgba(26,21,32,.08)}
+.person-ph{aspect-ratio:4/5;background:
+  repeating-linear-gradient(135deg,#FDF7EF 0 12px,#f6ece0 12px 24px);
+  display:grid;place-items:center;color:rgba(26,21,32,.34);font-size:13px;font-weight:700;
+  text-align:center;padding:16px}
+.person-b{padding:20px}
+.person-b b{display:block;font-size:17px;letter-spacing:-.02em}
+.person-b span{display:block;font-size:14px;color:rgba(26,21,32,.55);margin-top:3px}
+
+/* contact routes */
+.routes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:38px}
+@media(max-width:820px){.routes{grid-template-columns:1fr}}
+.route{padding:28px;border-radius:20px;background:#fff;border:1px solid rgba(26,21,32,.08);
+  display:flex;flex-direction:column;gap:10px}
+.route h3{letter-spacing:-.02em}
+.route p{font-size:15px;line-height:1.5}
+.route a.mailto{margin-top:auto;font-weight:700;color:#E24A28;word-break:break-word}
+.route a.mailto:hover{text-decoration:underline}
+
+/* an unfilled value, visibly unfilled */
+.slot{display:inline-block;background:rgba(226,74,40,.1);color:#E24A28;border-radius:7px;
+  padding:2px 9px;font-weight:700;font-size:.94em;
+  border:1px dashed rgba(226,74,40,.45)}
+
+/* legal document body */
+.legal{display:grid;grid-template-columns:230px 1fr;gap:clamp(28px,4vw,64px);
+  align-items:start}
+@media(max-width:900px){.legal{grid-template-columns:1fr}}
+.legal-toc{position:sticky;top:88px;font-size:14px;display:grid;gap:9px}
+@media(max-width:900px){.legal-toc{position:static;
+  padding:20px;border-radius:16px;background:#FDF7EF}}
+.legal-toc b{font-size:12px;letter-spacing:.07em;text-transform:uppercase;
+  color:rgba(26,21,32,.45)}
+.legal-toc a{color:rgba(26,21,32,.7)}
+.legal-toc a:hover{color:#E24A28}
+.legal-body h2{font-size:clamp(21px,2vw,26px);letter-spacing:-.02em;line-height:1.15;
+  margin:44px 0 12px;scroll-margin-top:96px}
+.legal-body h2:first-child{margin-top:0}
+.legal-body p{font-size:16px;line-height:1.62;margin-bottom:12px;max-width:70ch}
+.legal-body ul{margin:0 0 12px;padding-left:20px;max-width:70ch}
+.legal-body li{font-size:16px;line-height:1.62;margin-bottom:7px;
+  color:rgba(26,21,32,.85)}
+.legal-note{padding:18px 20px;border-radius:14px;background:#FDF7EF;
+  border:1px solid rgba(26,21,32,.08);font-size:14.5px;line-height:1.5;margin-bottom:30px}
+.legal-meta{font-size:14px;color:rgba(26,21,32,.5);margin-top:44px;
+  padding-top:20px;border-top:1px solid rgba(26,21,32,.1)}
+
+/* closing band, reusing the homepage's .final treatment */
+.closer{background:#FDF7EF;padding:clamp(60px,7vw,96px) 0}
+.closer-in{text-align:center;max-width:720px;margin:0 auto}
+.closer-in p{margin:16px auto 26px;max-width:52ch}
+.closer .gbtn{display:inline-flex}
